@@ -67,11 +67,11 @@ graph TD
     Webhook -->|"HTTP POST"| N8N
 
     %% 内部逻辑
-    N8N -->|"1. 创建任务"| Redis
-    Redis -->|"2. 拉取任务"| Worker
+    N8N -->|"1.创建任务"| Redis
+    Redis -->|"2.拉取任务"| Worker
     
     N8N -->|"读写工作流/凭证"| DB
-    Worker -->|"3. 写入执行结果"| DB
+    Worker -->|"3.写入执行结果"| DB
 
     %% 依赖声明
     N8N -.->|"Depends on"| Redis
