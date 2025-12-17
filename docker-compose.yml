@@ -27,8 +27,13 @@ x-shared: &shared
   volumes:
     - n8n_storage:/home/node/.n8n
     - /opt/code:/opt/code
+    - /opt/Notes:/opt/Notes
     - /Users/terrychen/.gitconfig:/home/node/.gitconfig:ro
-    - /Users/terrychen/.ssh:/home/node/.ssh
+    - /Users/terrychen/.ssh/id_ed25519:/home/node/.ssh/id_ed25519:ro
+    - /Users/terrychen/.ssh/id_ed25519.pub:/home/node/.ssh/id_ed25519.pub:ro
+    - /Users/terrychen/.ssh/id_rsa:/home/node/.ssh/id_rsa:ro
+    - /Users/terrychen/.ssh/id_rsa.pub:/home/node/.ssh/id_rsa.pub:ro
+    - /Users/terrychen/.ssh/known_hosts:/home/node/.ssh/known_hosts:ro
   depends_on:
     redis:
       condition: service_healthy
