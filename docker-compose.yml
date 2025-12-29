@@ -21,19 +21,19 @@ x-shared: &shared
     - GENERIC_TIMEZONE=${GENERIC_TIMEZONE:-Asia/Shanghai}
     - DB_LOGGING_ENABLED=false
     - DB_LOGGING_MAX_EXECUTION_TIME=0
+    - NODES_EXCLUDE=[]
   links:
     - postgres
     - redis
   volumes:
     - n8n_storage:/home/node/.n8n
-    - /opt/code:/opt/code
-    - /opt/Notes:/opt/Notes
+    - /opt:/opt
     - /Users/terrychen/.gitconfig:/home/node/.gitconfig:ro
     - /Users/terrychen/.ssh/id_ed25519:/home/node/.ssh/id_ed25519:ro
     - /Users/terrychen/.ssh/id_ed25519.pub:/home/node/.ssh/id_ed25519.pub:ro
     - /Users/terrychen/.ssh/id_rsa:/home/node/.ssh/id_rsa:ro
     - /Users/terrychen/.ssh/id_rsa.pub:/home/node/.ssh/id_rsa.pub:ro
-    - /Users/terrychen/.ssh/known_hosts:/home/node/.ssh/known_hosts:ro
+    - /Users/terrychen/.ssh/known_hosts:/home/node/.ssh/known_hosts
   depends_on:
     redis:
       condition: service_healthy
