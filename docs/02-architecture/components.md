@@ -1,8 +1,20 @@
+---
+title: n8n 队列模式架构组件
+description: n8n Queue Mode 部署架构的核心组件、数据流向和持久化机制详解
+category: architecture
+tags: [architecture, queue-mode, docker, redis, postgresql]
+author: Terry Chen
+created: 2024-12-24
+updated: 2024-12-29
+version: 1.0.0
+status: active
+---
+
 # 架构组件文档
 
 ## 1. 系统概览
 
-本项目采用 **n8n Queue Mode (队列模式)** 部署架构。这种架构设计专为生产环境和高负载场景优化，将工作流的“编辑/管理”与“实际执行”分离，实现了更好的稳定性和水平扩展能力。
+本项目采用 **n8n Queue Mode (队列模式)** 部署架构。这种架构设计专为生产环境和高负载场景优化，将工作流的"编辑/管理"与"实际执行"分离，实现了更好的稳定性和水平扩展能力。
 
 ## 2. 核心组件模块
 
@@ -69,7 +81,7 @@ graph TD
     %% 内部逻辑
     N8N -->|"1.创建任务"| Redis
     Redis -->|"2.拉取任务"| Worker
-    
+
     N8N -->|"读写工作流/凭证"| DB
     Worker -->|"3.写入执行结果"| DB
 
@@ -88,3 +100,15 @@ graph TD
 | **db_storage** | `/var/lib/postgresql/data` | PostgreSQL 数据库文件，包含所有业务核心数据。 |
 | **n8n_storage** | `/home/node/.n8n` | n8n 的配置文件、加密密钥文件 (Encryption Key) 等。 |
 | **redis_storage** | `/data` | Redis 的持久化数据（RDB/AOF），防止重启后队列丢失。 |
+
+## 相关文档
+
+- [架构概览](./overview.md)
+- [部署指南](../03-guides/deployment/docker-compose.md)
+- [运维手册](../04-operations/maintenance.md)
+
+## 更新历史
+
+| 版本 | 日期 | 更新内容 | 作者 |
+|------|------|---------|------|
+| 1.0.0 | 2024-12-24 | 初始版本 | Terry Chen |

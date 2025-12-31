@@ -1,3 +1,15 @@
+---
+title: n8n Docker 维护指南
+description: n8n Docker 部署的日常维护、健康检查、性能优化和监控配置指南
+category: operations
+tags: [maintenance, monitoring, docker, health-check, optimization]
+author: Terry Chen
+created: 2024-12-24
+updated: 2024-12-29
+version: 1.0.0
+status: active
+---
+
 # n8n Docker 维护指南
 
 ## 日常维护操作
@@ -187,8 +199,8 @@ environment:
 
 ## 相关资源
 
-- [问题处理指南](./troubleshooting.md) - 常见问题诊断和解决方案
-- [DOCKER_COMPOSE_README.md](./DOCKER_COMPOSE_README.md) - 完整部署指南
+- [问题处理指南](./troubleshooting/common-issues.md) - 常见问题诊断和解决方案
+- [Docker Compose 部署指南](../03-guides/deployment/docker-compose.md) - 完整部署指南
 - [n8n 官方文档](https://docs.n8n.io)
 
 ## 技术支持

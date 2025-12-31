@@ -1,121 +1,166 @@
-# n8n 文档索引
+# n8n 项目文档
 
-本目录包含 n8n 部署和维护的相关文档。
+> 最后更新：2024-12-29
 
-## 📚 文档列表
-
-### 核心文档
-
-- **[架构说明](./architecture.md)** - n8n 项目的整体架构和技术栈
-- **[组件说明](./components.md)** - Docker Compose 中各组件的关系和配置
-- **[部署指南](./deployment.md)** - n8n 的部署流程和配置说明
-- **[维护指南](./maintenance.md)** - 日常维护和更新操作
-
-### 访问和安全
-
-- **[IP 地址访问解决方案](./ip-access-solution.md)** ⭐ **重要**
-  - 问题：通过 IP 地址访问 n8n 时的 `crypto.randomUUID()` 错误
-  - 当前方案：SSH 隧道
-  - 生产方案：域名 + HTTPS
-  
-- **[SSH 隧道使用指南](./ssh-tunnel-guide.md)** - 详细的 SSH 隧道配置和使用说明
-
-- **[SSH GitHub 访问](./ssh-github-access.md)** - 配置 n8n 节点使用 SSH 访问 GitHub
-
-### 故障排查
-
-- **[故障排查指南](./troubleshooting.md)** - 常见问题和解决方案
+欢迎来到 n8n 项目文档中心！本文档库包含项目部署、架构设计、操作指南和故障排查等全方位的技术文档。
 
 ## 🚀 快速开始
 
-### 本地访问 n8n
+**新用户从这里开始：**
 
-**当前推荐方式：SSH 隧道**
+1. **了解架构** - [n8n 核心架构](./02-architecture/overview.md) | [队列模式组件](./02-architecture/components.md)
+2. **部署服务** - [Docker Compose 部署指南](./03-guides/deployment/docker-compose.md)
+3. **安全访问** - [SSH 隧道访问](./03-guides/configuration/ssh-tunnel.md)
 
-```bash
-# 在本地电脑运行
-ssh -L 5678:localhost:5678 你的用户名@160.13.4.23
+## 📚 文档分类
 
-# 然后在浏览器访问
-http://localhost:5678
+### 🏗️ [01 - 入门指南](./01-getting-started/)
+> 快速上手和安装指南
+
+**即将添加的内容：**
+- 快速开始
+- 安装指南
+- 基本概念
+
+### 🎯 [02 - 架构设计](./02-architecture/)
+> 系统架构、设计思想和技术选型
+
+- [核心架构概览](./02-architecture/overview.md) - Monorepo 结构、技术栈、核心概念
+- [队列模式组件](./02-architecture/components.md) - Docker 容器架构、数据流向
+
+### 📖 [03 - 操作指南](./03-guides/)
+> 具体功能的配置和使用方法
+
+#### 部署相关
+- [Docker Compose 部署](./03-guides/deployment/docker-compose.md) - 完整的生产环境部署指南
+
+#### 配置相关
+- [SSH 隧道配置](./03-guides/configuration/ssh-tunnel.md) - 安全访问远程 n8n 服务
+
+#### 集成相关
+- [GitHub SSH 集成](./03-guides/integration/github-ssh.md) - 配置 Git 仓库访问
+
+### 🔧 [04 - 运维手册](./04-operations/)
+> 部署、维护、监控和故障排查
+
+#### 维护
+- [日常维护指南](./04-operations/maintenance.md) - 健康检查、备份、监控
+
+#### 故障排查
+- [常见问题处理](./04-operations/troubleshooting/common-issues.md) - 数据库、性能、服务启动
+- [IP 访问问题](./04-operations/troubleshooting/ip-access.md) - Web Crypto API 安全上下文
+
+### 📋 [05 - 参考文档](./05-reference/)
+> API、配置项详细说明
+
+**即将添加的内容：**
+- API 文档
+- 配置参考
+- 环境变量
+
+## 🔍 常用文档
+
+以下是访问频率最高的文档链接：
+
+1. [Docker Compose 部署指南](./03-guides/deployment/docker-compose.md) ⭐⭐⭐⭐⭐
+2. [SSH 隧道访问指南](./03-guides/configuration/ssh-tunnel.md) ⭐⭐⭐⭐
+3. [常见问题处理](./04-operations/troubleshooting/common-issues.md) ⭐⭐⭐⭐
+4. [n8n 核心架构](./02-architecture/overview.md) ⭐⭐⭐
+5. [维护指南](./04-operations/maintenance.md) ⭐⭐⭐
+
+## 🛠️ 文档模板
+
+为保持文档风格一致，我们提供了以下模板供参考：
+
+- [操作指南模板](./_templates/guide-template.md) - 用于编写 How-to 类型的文档
+- [故障排查模板](./_templates/troubleshooting-template.md) - 用于编写问题诊断和解决方案
+- [架构设计模板](./_templates/architecture-template.md) - 用于编写系统设计和技术决策
+- [API 文档模板](./_templates/api-template.md) - 用于编写接口说明文档
+- [功能优化模板](./_templates/feature-template.md) - 用于记录性能优化和功能改进
+- [缺陷修复模板](./_templates/bugfix-template.md) - 用于记录 bug 修复过程
+
+## 📝 如何贡献文档
+
+我们欢迎所有形式的文档贡献！在编写或更新文档前，请阅读：
+
+- [文档贡献指南](./CONTRIBUTING.md) - 文档规范和最佳实践
+
+### 快速开始贡献
+
+1. **选择合适的模板** - 根据文档类型从 `_templates/` 目录选择模板
+2. **遵循命名规范** - 使用小写字母和连字符（如 `my-guide.md`）
+3. **添加 frontmatter** - 在文档开头添加完整的元数据
+4. **保持简洁明了** - 使用清晰的标题层级和代码示例
+5. **更新索引** - 在相关目录的 README.md 中添加文档链接
+
+### 文档规范要点
+
+- ✅ 使用中文编写（本项目）
+- ✅ 每个文档开头包含 YAML frontmatter
+- ✅ 使用 Markdown 标准语法
+- ✅ 代码块标注语言类型
+- ✅ 及时更新文档的 `updated` 字段
+- ✅ 过时文档标记为 `status: deprecated`
+
+## 📊 文档结构说明
+
+我们采用**按文档类型分类**的组织方式：
+
 ```
-
-详见：[SSH 隧道使用指南](./ssh-tunnel-guide.md)
-
-### 为什么不能直接通过 IP 访问？
-
-浏览器的安全策略要求 `crypto.randomUUID()` API 只能在安全上下文（HTTPS 或 localhost）下使用。通过 `http://160.13.4.23:5678` 访问会导致 n8n 前端初始化失败。
-
-详见：[IP 地址访问解决方案](./ip-access-solution.md)
-
-## 📖 文档使用指南
-
-### 日常使用
-
-1. **启动 n8n**：参考 [部署指南](./deployment.md)
-2. **访问 n8n**：参考 [SSH 隧道使用指南](./ssh-tunnel-guide.md)
-3. **维护更新**：参考 [维护指南](./maintenance.md)
-
-### 遇到问题
-
-1. 查看 [故障排查指南](./troubleshooting.md)
-2. 查看 [IP 地址访问解决方案](./ip-access-solution.md)
-3. 检查 Docker 日志：`docker-compose logs -f n8n`
-
-### 生产部署
-
-如果需要升级到生产环境（团队使用、多设备访问），参考：
-- [IP 地址访问解决方案 - 生产环境部署方案](./ip-access-solution.md#生产环境部署方案)
-
-## 🔧 配置文件
-
-### 主要配置
-
-- `docker-compose.yml` - Docker Compose 配置文件
-- `.env` - 环境变量配置
-
-### 当前配置状态
-
-- **访问方式**：SSH 隧道
-- **监听地址**：`127.0.0.1:5678`（仅本地）
-- **协议**：HTTP
-- **Webhook URL**：`http://localhost:5678/`
-
-## 📝 维护记录
-
-### 2024-12-24
-
-- **问题**：通过 IP 地址访问时出现 `crypto.randomUUID()` 错误
-- **解决方案**：采用 SSH 隧道方案
-- **配置变更**：
-  - 移除 Caddy 反向代理配置
-  - 恢复 n8n 直接监听 localhost:5678
-  - 更新环境变量为 HTTP 协议
-- **文档更新**：
-  - 创建 [IP 地址访问解决方案](./ip-access-solution.md)
-  - 创建 [SSH 隧道使用指南](./ssh-tunnel-guide.md)
-  - 删除临时故障排查文档
+docs/
+├── README.md                    # 本文件 - 文档总索引
+├── CONTRIBUTING.md              # 文档贡献指南
+├── 01-getting-started/          # 入门指南
+│   └── README.md
+├── 02-architecture/             # 架构设计
+│   ├── README.md
+│   ├── overview.md
+│   └── components.md
+├── 03-guides/                   # 操作指南
+│   ├── README.md
+│   ├── deployment/              # 部署指南
+│   ├── configuration/           # 配置指南
+│   └── integration/             # 集成指南
+├── 04-operations/               # 运维手册
+│   ├── README.md
+│   ├── maintenance.md
+│   └── troubleshooting/         # 故障排查
+├── 05-reference/                # 参考文档
+│   ├── README.md
+│   ├── api/
+│   └── configuration/
+└── _templates/                  # 文档模板
+```
 
 ## 🔗 相关资源
 
-### 官方文档
+### 官方资源
 
 - [n8n 官方文档](https://docs.n8n.io/)
-- [n8n GitHub](https://github.com/n8n-io/n8n)
+- [n8n GitHub 仓库](https://github.com/n8n-io/n8n)
 - [n8n 社区论坛](https://community.n8n.io/)
 
-### 官方配置示例
+### 项目相关
 
-- [n8n Docker Caddy 示例](https://github.com/n8n-io/n8n-docker-caddy) - 生产环境 HTTPS 配置参考
+- [项目架构指南](../../AGENTS.md) - 开发规范和架构说明
+- [Docker Compose 配置](../../docker-compose.yml)
+- [环境变量示例](../../.env.example)
 
-## 💡 提示
+## 📮 反馈和建议
 
-- 📌 **重要**：当前使用 SSH 隧道方案，适合个人使用
-- 🚀 **升级**：如需团队协作，考虑升级到域名 + HTTPS 方案
-- 🔒 **安全**：定期更新 n8n 版本和依赖
-- 📊 **监控**：定期检查 Docker 容器状态和日志
+如果您在使用文档过程中遇到问题或有改进建议：
+
+1. **文档问题** - 直接编辑相关文档并提交 Pull Request
+2. **新文档需求** - 创建 Issue 说明需求
+3. **内容错误** - 创建 Issue 或直接修正
+
+## 📜 版本历史
+
+| 版本 | 日期 | 更新内容 | 作者 |
+|------|------|---------|------|
+| 2.0.0 | 2024-12-29 | 重构文档结构，添加分类和模板 | Terry Chen |
+| 1.0.0 | 2024-12-24 | 初始版本 | Terry Chen |
 
 ---
 
-**最后更新**：2024-12-24  
-**维护者**：Terry Chen
+**📖 Happy Reading & Coding! 🚀**

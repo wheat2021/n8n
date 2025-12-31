@@ -1,3 +1,15 @@
+---
+title: n8n Docker Compose 部署指南
+description: 使用 Docker Compose 部署 n8n，包含 PostgreSQL、Redis 和队列模式配置的完整指南
+category: guides/deployment
+tags: [docker, docker-compose, deployment, postgresql, redis, queue-mode]
+author: Terry Chen
+created: 2024-12-24
+updated: 2024-12-29
+version: 1.0.0
+status: active
+---
+
 # n8n Docker Compose 部署指南
 
 使用 Docker Compose 部署 n8n，包含 PostgreSQL 数据库和 Redis 队列管理系统。

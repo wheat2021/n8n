@@ -1,3 +1,15 @@
+---
+title: n8n SSH 隧道访问指南
+description: 通过 SSH 隧道安全访问远程 n8n 服务的配置和使用指南
+category: guides/configuration
+tags: [ssh, tunnel, security, remote-access]
+author: Terry Chen
+created: 2024-12-24
+updated: 2024-12-29
+version: 1.0.0
+status: active
+---
+
 # n8n SSH 隧道访问指南
 
 ## 快速开始

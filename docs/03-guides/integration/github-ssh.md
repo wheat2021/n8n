@@ -1,3 +1,15 @@
+---
+title: n8n 中使用 SSH 访问 GitHub
+description: 配置 n8n Docker 容器使用 SSH 密钥访问 GitHub 仓库的指南
+category: guides/integration
+tags: [github, ssh, git, docker, integration]
+author: Terry Chen
+created: 2024-12-24
+updated: 2024-12-29
+version: 1.0.0
+status: active
+---
+
 # n8n 中使用 SSH 访问 GitHub
 
 ## 配置说明

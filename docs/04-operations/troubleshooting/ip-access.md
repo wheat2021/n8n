@@ -1,3 +1,15 @@
+---
+title: n8n IP 地址访问问题解决方案
+description: 解决通过 IP 地址访问 n8n 时 Web Crypto API 安全上下文限制问题
+category: operations/troubleshooting
+tags: [troubleshooting, https, security, crypto-api, ssh-tunnel]
+author: Terry Chen
+created: 2024-12-24
+updated: 2024-12-29
+version: 1.0.0
+status: active
+---
+
 # n8n IP 地址访问问题解决方案
 
 ## 问题概述

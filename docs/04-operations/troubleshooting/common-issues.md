@@ -1,3 +1,15 @@
+---
+title: n8n Docker 问题处理指南
+description: n8n Docker 部署常见问题的诊断和解决方案
+category: operations/troubleshooting
+tags: [troubleshooting, docker, database, performance, debugging]
+author: Terry Chen
+created: 2024-12-24
+updated: 2024-12-29
+version: 1.0.0
+status: active
+---
+
 # n8n Docker 问题处理指南
 
 ## 场景 1: 数据库连接异常 (503 错误)
@@ -268,8 +280,8 @@ curl http://localhost:5678/healthz
 
 ## 相关资源
 
-- [维护指南](./maintenance.md) - 日常维护操作
-- [DOCKER_COMPOSE_README.md](./DOCKER_COMPOSE_README.md) - 完整部署指南
+- [维护指南](../maintenance.md) - 日常维护操作
+- [Docker Compose 部署指南](../../03-guides/deployment/docker-compose.md) - 完整部署指南
 - [n8n 官方文档](https://docs.n8n.io)
 
 ## 技术支持

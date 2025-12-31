@@ -1,3 +1,15 @@
+---
+title: n8n 项目核心架构
+description: n8n 工作流自动化平台的整体架构、技术栈、Monorepo 结构和核心概念详解
+category: architecture
+tags: [architecture, monorepo, typescript, vue, workflow]
+author: Terry Chen
+created: 2024-12-24
+updated: 2024-12-29
+version: 1.0.0
+status: active
+---
+
 # n8n 项目核心架构
 
 ## 项目概述
@@ -207,35 +219,35 @@ graph TB
         UI[Vue 3 Editor UI<br/>工作流编辑器]
         DS[Design System<br/>组件库]
     end
-    
+
     subgraph "API 层"
         API[Express REST API<br/>WebSocket]
         Auth[认证中间件<br/>JWT/SAML/OAuth]
     end
-    
+
     subgraph "业务逻辑层"
         WS[Workflow Service<br/>工作流管理]
         ES[Execution Service<br/>执行管理]
         CS[Credential Service<br/>凭证管理]
         US[User Service<br/>用户管理]
     end
-    
+
     subgraph "执行引擎"
         Core[n8n-core<br/>执行引擎]
         Nodes[Nodes Base<br/>节点库]
         Worker[Worker Process<br/>队列处理]
     end
-    
+
     subgraph "数据层"
         DB[(Database<br/>SQLite/PostgreSQL/MySQL)]
         Redis[(Redis<br/>队列&缓存)]
         FS[File System<br/>临时文件]
     end
-    
+
     subgraph "外部服务"
         EXT[Third-party APIs<br/>外部服务集成]
     end
-    
+
     UI --> DS
     UI --> API
     API --> Auth
@@ -243,22 +255,22 @@ graph TB
     Auth --> ES
     Auth --> CS
     Auth --> US
-    
+
     WS --> Core
     ES --> Core
     ES --> Worker
-    
+
     Core --> Nodes
     Nodes --> EXT
-    
+
     WS --> DB
     ES --> DB
     CS --> DB
     US --> DB
-    
+
     ES --> Redis
     Worker --> Redis
-    
+
     Core --> FS
 ```
 
@@ -276,7 +288,7 @@ sequenceDiagram
     participant Core as n8n-core
     participant Nodes as Nodes Base
     participant DB as Database
-    
+
     User->>UI: 创建/编辑工作流
     UI->>API: POST /workflows
     API->>WS: saveWorkflow()
@@ -284,7 +296,7 @@ sequenceDiagram
     DB-->>WS: 工作流 ID
     WS-->>API: 工作流数据
     API-->>UI: 保存成功
-    
+
     User->>UI: 执行工作流
     UI->>API: POST /workflows/:id/run
     API->>ES: executeWorkflow()
@@ -292,17 +304,17 @@ sequenceDiagram
     Queue-->>ES: Job ID
     ES-->>API: 执行 ID
     API-->>UI: 执行已开始
-    
+
     Queue->>Worker: 触发任务
     Worker->>Core: runWorkflow()
-    
+
     loop 每个节点
         Core->>Nodes: executeNode()
         Nodes->>Nodes: 处理数据
         Nodes-->>Core: 节点输出
         Core->>DB: 保存执行数据
     end
-    
+
     Core-->>Worker: 执行完成
     Worker->>DB: 更新执行状态
     Worker->>UI: WebSocket 推送结果
@@ -316,7 +328,7 @@ graph LR
     subgraph "输入"
         Trigger[触发器节点<br/>Webhook/Scheduler/Manual]
     end
-    
+
     subgraph "处理流程"
         Node1[节点 1<br/>数据获取]
         Node2[节点 2<br/>数据转换]
@@ -324,11 +336,11 @@ graph LR
         Node4A[分支 A<br/>操作 A]
         Node4B[分支 B<br/>操作 B]
     end
-    
+
     subgraph "输出"
         Output[输出节点<br/>HTTP/Database/File]
     end
-    
+
     Trigger -->|触发数据| Node1
     Node1 -->|原始数据| Node2
     Node2 -->|转换后数据| Node3
@@ -434,43 +446,43 @@ n8n install @n8n_io/n8n-nodes-community-package
 ```mermaid
 graph TB
     LB[Load Balancer]
-    
+
     subgraph "Main Processes"
         M1[Main 1]
         M2[Main 2]
     end
-    
+
     subgraph "Webhook Processes"
         W1[Webhook 1]
         W2[Webhook 2]
     end
-    
+
     subgraph "Worker Processes"
         WK1[Worker 1]
         WK2[Worker 2]
         WK3[Worker 3]
     end
-    
+
     Redis[(Redis<br/>Queue)]
     DB[(PostgreSQL<br/>Database)]
-    
+
     LB --> M1
     LB --> M2
     LB --> W1
     LB --> W2
-    
+
     M1 --> Redis
     M2 --> Redis
     M1 --> DB
     M2 --> DB
-    
+
     W1 --> Redis
     W2 --> Redis
-    
+
     Redis --> WK1
     Redis --> WK2
     Redis --> WK3
-    
+
     WK1 --> DB
     WK2 --> DB
     WK3 --> DB
@@ -588,3 +600,15 @@ pnpm --filter=n8n-playwright test:local
 - [GitHub 仓库](https://github.com/n8n-io/n8n)
 - [社区论坛](https://community.n8n.io/)
 - [节点开发指南](https://docs.n8n.io/integrations/creating-nodes/)
+
+## 相关文档
+
+- [架构组件详解](./components.md)
+- [部署指南](../03-guides/deployment/docker-compose.md)
+- [运维手册](../04-operations/maintenance.md)
+
+## 更新历史
+
+| 版本 | 日期 | 更新内容 | 作者 |
+|------|------|---------|------|
+| 1.0.0 | 2024-12-24 | 初始版本 | Terry Chen |
