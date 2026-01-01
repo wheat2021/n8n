@@ -8,9 +8,9 @@
 
 **新用户从这里开始：**
 
-1. **了解架构** - [n8n 核心架构](./02-architecture/overview.md) | [队列模式组件](./02-architecture/components.md)
-2. **部署服务** - [Docker Compose 部署指南](./03-guides/deployment/docker-compose.md)
-3. **安全访问** - [SSH 隧道访问](./03-guides/configuration/ssh-tunnel.md)
+1. **了解架构** - [n8n 核心架构](overview.md) | [队列模式组件](19_repo_doc_ref/n8n/02-architecture/components.md)
+2. **部署服务** - [Docker Compose 部署指南](docker-compose.md)
+3. **安全访问** - [SSH 隧道访问](ssh-tunnel.md)
 
 ## 📚 文档分类
 
@@ -25,30 +25,30 @@
 ### 🎯 [02 - 架构设计](./02-architecture/)
 > 系统架构、设计思想和技术选型
 
-- [核心架构概览](./02-architecture/overview.md) - Monorepo 结构、技术栈、核心概念
-- [队列模式组件](./02-architecture/components.md) - Docker 容器架构、数据流向
+- [核心架构概览](overview.md) - Monorepo 结构、技术栈、核心概念
+- [队列模式组件](19_repo_doc_ref/n8n/02-architecture/components.md) - Docker 容器架构、数据流向
 
 ### 📖 [03 - 操作指南](./03-guides/)
 > 具体功能的配置和使用方法
 
 #### 部署相关
-- [Docker Compose 部署](./03-guides/deployment/docker-compose.md) - 完整的生产环境部署指南
+- [Docker Compose 部署](docker-compose.md) - 完整的生产环境部署指南
 
 #### 配置相关
-- [SSH 隧道配置](./03-guides/configuration/ssh-tunnel.md) - 安全访问远程 n8n 服务
+- [SSH 隧道配置](ssh-tunnel.md) - 安全访问远程 n8n 服务
 
 #### 集成相关
-- [GitHub SSH 集成](./03-guides/integration/github-ssh.md) - 配置 Git 仓库访问
+- [GitHub SSH 集成](github-ssh.md) - 配置 Git 仓库访问
 
 ### 🔧 [04 - 运维手册](./04-operations/)
 > 部署、维护、监控和故障排查
 
 #### 维护
-- [日常维护指南](./04-operations/maintenance.md) - 健康检查、备份、监控
+- [日常维护指南](19_repo_doc_ref/n8n/04-operations/maintenance.md) - 健康检查、备份、监控
 
 #### 故障排查
-- [常见问题处理](./04-operations/troubleshooting/common-issues.md) - 数据库、性能、服务启动
-- [IP 访问问题](./04-operations/troubleshooting/ip-access.md) - Web Crypto API 安全上下文
+- [常见问题处理](common-issues.md) - 数据库、性能、服务启动
+- [IP 访问问题](ip-access.md) - Web Crypto API 安全上下文
 
 ### 📋 [05 - 参考文档](./05-reference/)
 > API、配置项详细说明
@@ -62,28 +62,28 @@
 
 以下是访问频率最高的文档链接：
 
-1. [Docker Compose 部署指南](./03-guides/deployment/docker-compose.md) ⭐⭐⭐⭐⭐
-2. [SSH 隧道访问指南](./03-guides/configuration/ssh-tunnel.md) ⭐⭐⭐⭐
-3. [常见问题处理](./04-operations/troubleshooting/common-issues.md) ⭐⭐⭐⭐
-4. [n8n 核心架构](./02-architecture/overview.md) ⭐⭐⭐
-5. [维护指南](./04-operations/maintenance.md) ⭐⭐⭐
+1. [Docker Compose 部署指南](docker-compose.md) ⭐⭐⭐⭐⭐
+2. [SSH 隧道访问指南](ssh-tunnel.md) ⭐⭐⭐⭐
+3. [常见问题处理](common-issues.md) ⭐⭐⭐⭐
+4. [n8n 核心架构](overview.md) ⭐⭐⭐
+5. [维护指南](19_repo_doc_ref/n8n/04-operations/maintenance.md) ⭐⭐⭐
 
 ## 🛠️ 文档模板
 
 为保持文档风格一致，我们提供了以下模板供参考：
 
-- [操作指南模板](./_templates/guide-template.md) - 用于编写 How-to 类型的文档
-- [故障排查模板](./_templates/troubleshooting-template.md) - 用于编写问题诊断和解决方案
-- [架构设计模板](./_templates/architecture-template.md) - 用于编写系统设计和技术决策
-- [API 文档模板](./_templates/api-template.md) - 用于编写接口说明文档
-- [功能优化模板](./_templates/feature-template.md) - 用于记录性能优化和功能改进
-- [缺陷修复模板](./_templates/bugfix-template.md) - 用于记录 bug 修复过程
+- [操作指南模板](19_repo_doc_ref/n8n/_templates/guide-template.md) - 用于编写 How-to 类型的文档
+- [故障排查模板](19_repo_doc_ref/n8n/_templates/troubleshooting-template.md) - 用于编写问题诊断和解决方案
+- [架构设计模板](19_repo_doc_ref/n8n/_templates/architecture-template.md) - 用于编写系统设计和技术决策
+- [API 文档模板](19_repo_doc_ref/n8n/_templates/api-template.md) - 用于编写接口说明文档
+- [功能优化模板](19_repo_doc_ref/n8n/_templates/feature-template.md) - 用于记录性能优化和功能改进
+- [缺陷修复模板](19_repo_doc_ref/n8n/_templates/bugfix-template.md) - 用于记录 bug 修复过程
 
 ## 📝 如何贡献文档
 
 我们欢迎所有形式的文档贡献！在编写或更新文档前，请阅读：
 
-- [文档贡献指南](./CONTRIBUTING.md) - 文档规范和最佳实践
+- [文档贡献指南](CONTRIBUTING.md) - 文档规范和最佳实践
 
 ### 快速开始贡献
 
